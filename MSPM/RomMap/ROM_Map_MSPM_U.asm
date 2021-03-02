@@ -1,7 +1,7 @@
 
 macro MSPM_GameSpecificAssemblySettings()
 	!ROM_MSPM_U = $0001							;\ These defines assign each ROM version with a different bit so version difference checks will work. Do not touch them!
-	!ROM_MSPM_J = $0002							;/
+	!ROM_MSPM_E = $0002							;/
 
 	%SetROMToAssembleForHack(MSPM_U, !ROMID)
 endmacro
@@ -76,6 +76,7 @@ macro MSPM_GlobalAssemblySettings()
 	!EmulationModeNMIVector = CODE_80811F
 	!EmulationModeResetVector = CODE_808000
 	!EmulationModeIRQVector = CODE_808118
+	%LoadExtraRAMFile("SRAM_Map_MSPM.asm")
 endmacro
 
 macro MSPM_LoadROMMap()
